@@ -2,9 +2,35 @@
   "name": "augment-image",
   "version": "1.0.0",
   "description": "Image augmentation library and cli for machine learning tasks",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "image",
+    "augment",
+    "augmentation",
+    "machine-learning",
+    "deep-learning",
+    "image-processing",
+    "cli",
+    "typescript",
+    "sharp",
+    "image-manipulation",
+    "data-augmentation",
+    "image-augmentation",
+    "rotate",
+    "scale",
+    "crop",
+    "shear",
+    "flip",
+    "blur",
+    "grayscale",
+    "flipX",
+    "flipY"
+  ],
+  "author": {
+    "name": "Beeno Tung",
+    "email": "aabbcc1241@yahoo.com.hk",
+    "url": "https://beeno-tung.surge.sh"
+  },
+  "license": "BSD-2-Clause",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beenotung/augment-image.git"
@@ -24,15 +50,15 @@
     "build": "rimraf dist && tsc -p . && rimraf dist/tsconfig.tsbuildinfo",
     "tsc": "tsc -p ."
   },
+  "dependencies": {
+    "cli-helpers": "^1.2.0",
+    "sharp": "^0.33.5"
+  },
   "devDependencies": {
     "@types/node": "^22.7.5",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "cli-helpers": "^1.2.0",
-    "sharp": "^0.33.5"
   }
 }
