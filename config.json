@@ -1,0 +1,58 @@
+{
+  // "background": ["#00000000", "#88888888", "#ffffffff"],
+  "scale": [
+    [0.75, 0.75],
+    [1, 1]
+  ],
+  "crop": [
+    [null, null],
+    [150, 150]
+  ],
+  "shear": [
+    [0, 0],
+    // [-16, 0],
+    [16, 0],
+    // [0, -16],
+    [0, 16]
+  ],
+  "rotate": [0],
+  "grayscale": "always",
+  "flipX": true,
+  "flipY": false,
+  "blur": [0]
+}
+// export type BuildFilterGroupsOptions = {
+//     /**
+//      * @description for region that overflow when transform
+//      * default `['#00000000']`
+//      */
+//     background?: string[];
+//     /**
+//      * @description `Array<[w,h]>` in percentage, applied before crop
+//      * e.g. `[[0.8,1.2]]` for 80% in width and 120% in height
+//      * */
+//     scale?: [w: number, h: number][];
+//     /**
+//      * @description `Array<[w,h]>` in pixel unit, applied before after scale
+//      * e.g. `[[100,100],[100,150],[150,100]]`
+//      */
+//     crop?: [w: number, h: number][];
+//     /**
+//      * @description `Array<[x,y]>` in degree, applied after crop
+//      * e.g. `[[0,0],[-16,0],[+16,0],[0,-16],[0,+16]]`
+//      * */
+//     shear?: [x: number, y: number][];
+//     /**
+//      * @description in degree
+//      * e.g. `[-15, 0, 15]`
+//      * */
+//     rotate?: number[];
+//     grayscale?: 'always' | 'never' | 'both';
+//     flipX?: boolean;
+//     flipY?: boolean;
+//     /**
+//      * @description sigma range from 0 to 1000
+//      * e.g. `[0, 1]`
+//      * */
+//     blur?: number[];
+// }

@@ -276,7 +276,7 @@ export function expandCropSize(
 }
 
 export let aggressiveFilterGroupsOptions: BuildFilterGroupsOptions = {
-  // background: ['#00000000', '#ffffffff'],
+  // background: ['#00000000', '#88888888', '#ffffffff'],
   scale: [0.75, 1.0].flatMap(s => [[s, s]]),
   crop: [Infinity, 150].map(s => [s, s]),
   shear: [
@@ -289,8 +289,8 @@ export let aggressiveFilterGroupsOptions: BuildFilterGroupsOptions = {
   // rotate: rangeAround({ center: 0, range: 15, step: 15 }),
   grayscale: 'always',
   flipX: true,
-  // flipY: false,
-  // blur: [0, 1],
+  flipY: false,
+  blur: [0, 1],
 }
 
 export async function* augmentImage(image: Sharp, filterGroups: FilterGroup[]) {
