@@ -110,8 +110,8 @@ export function buildFilterGroups(options: BuildFilterGroupsOptions) {
           let w_h_sizes: number[][] = []
           for (let [w, h] of options.crop!) {
             /* avoid overflow */
-            w = Math.min(w, width)
-            h = Math.min(h, height)
+            w = Math.min(w || Infinity, width)
+            h = Math.min(h || Infinity, height)
 
             /* skip already checked size */
             let h_sizes = w_h_sizes[w]
