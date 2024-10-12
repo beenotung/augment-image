@@ -1,5 +1,4 @@
 import { mkdirSync, readdirSync } from 'fs'
-import { version } from 'os'
 import { extname, join } from 'path'
 import sharp, { Sharp } from 'sharp'
 
@@ -21,18 +20,6 @@ async function getImageDimension(image: Sharp) {
   }
   return { width, height }
 }
-
-/**
- * affine matrix
- * [a b]
- * [c d]
- *
- * a: scale in x-axis
- * d: scale in y-axis
- *
- * b: shear in x-axis
- * c: shear in y-axis
- */
 
 export type BuildFilterGroupsOptions = {
   /**
@@ -76,7 +63,20 @@ export type BuildFilterGroupsOptions = {
   blur?: number[]
 }
 
+/** @description generate filter groups with variants based on the given options */
 export function buildFilterGroups(options: BuildFilterGroupsOptions) {
+  /**
+   * affine matrix
+   * [a b]
+   * [c d]
+   *
+   * a: scale in x-axis
+   * d: scale in y-axis
+   *
+   * b: shear in x-axis
+   * c: shear in y-axis
+   */
+
   let groups: FilterGroup[] = []
   let background =
     options.background?.length! > 0 ? options.background! : ['#00000000']
@@ -218,6 +218,7 @@ export function buildFilterGroups(options: BuildFilterGroupsOptions) {
   return groups
 }
 
+/** @description generate sequence of `number[]` */
 export function range(args: {
   /** @description inclusive */
   from: number
@@ -241,6 +242,7 @@ export function range(args: {
   return values
 }
 
+/** @description generate sequence of `number[]` */
 export function rangeAround(args: {
   center: number
   /** @description inclusive */
@@ -258,6 +260,7 @@ export function rangeAround(args: {
   return values
 }
 
+/** @description generate `[[a,a],[b,b]]` into combination of `[[a,a],[a,b],[b,a],[b,b]]` */
 export function expandCropSize(
   /** @description e.g. `[Infinity, 1000, 500, 300, 200, 100, 50]` */
   size: number[],
@@ -275,6 +278,7 @@ export function expandCropSize(
   return res
 }
 
+/** @description a reference setting that balance the number of image augmentation combination and the time cost */
 export let aggressiveFilterGroupsOptions: BuildFilterGroupsOptions = {
   // background: ['#00000000', '#88888888', '#ffffffff'],
   scale: [0.75, 1.0].flatMap(s => [[s, s]]),
@@ -293,6 +297,7 @@ export let aggressiveFilterGroupsOptions: BuildFilterGroupsOptions = {
   blur: [0, 1],
 }
 
+/** @description the core function that apply all combination of image augmentation filters */
 export async function* augmentImage(image: Sharp, filterGroups: FilterGroup[]) {
   let n = filterGroups.length
   let variantIndies = new Array(n).fill(0)
@@ -334,6 +339,7 @@ export async function* augmentImage(image: Sharp, filterGroups: FilterGroup[]) {
   }
 }
 
+/** @description scan images in `srcDir` and save the augmented images in `outDir` */
 export async function scanDirectory(options: {
   srcDir: string
   outDir: string

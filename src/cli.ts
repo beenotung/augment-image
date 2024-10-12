@@ -1,10 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs'
-import { readJSONFile, resolveFile, writeJSONFile } from 'cli-helpers'
-import {
-  BuildFilterGroupsOptions,
-  aggressiveFilterGroupsOptions,
-  rangeAround,
-} from './core'
+import { readJSONFile, resolveFile } from 'cli-helpers'
+import { BuildFilterGroupsOptions } from './core'
 import { main } from './main'
 
 type Mode = null | 'init' | 'run' | 'help'
