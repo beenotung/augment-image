@@ -31,6 +31,37 @@ Note that optional dependency should not be disabled, sharp installs the os-spec
 
 ## Usage Example
 
+**Run the cli with npx**:
+
+```shell
+npx augment-image [options]
+```
+
+**Available options**:
+
+```
+General:
+  -h, --help                  Show this help message and exit.
+  -v, --version               Show the version number and exit.
+
+Configuration:
+  -i, --init                  Initialize a configuration file.
+
+Run Mode:
+  -r, --run                   Run the main logic of the application.
+  -s  --srcDir <path>         Specify the source directory. Default is "./images/raw".
+  -o, --outDir <path>         Specify the output directory. Default is "./images/augments".
+  -q, --quiet                 Disable verbose logging. By default, verbose is enabled.
+```
+
+**Notes**:
+
+- Use the --init option to generate a default config file.
+- You can edit the config in "config.json" in the current directory.
+- The config file must exist in the run mode.
+
+**Use as library**:
+
 ```typescript
 import {
   aggressiveFilterGroupsOptions,
